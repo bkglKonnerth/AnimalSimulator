@@ -1,0 +1,25 @@
+﻿<Window x:Class="AnimalSimulator.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimalSimulator"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize"
+        Background="#b7b7b7"
+        Title="Bitte Daten zum Regestrieren eingeben!" Height="550" Width="1000">
+    <Grid>
+        <Border Background="#acacac" HorizontalAlignment="Left" BorderBrush="Black" BorderThickness="2" CornerRadius="30" Height="416" Margin="113,59,0,0" VerticalAlignment="Top" Width="783"/>
+        <TextBox Name="TextBox_Username" TextWrapping="Wrap" TextAlignment="Center" Text="" Margin="192,110,190,366.5" FontSize="18" FontWeight="Bold"/>
+        <Button Name="Button_Login" Content="Register" Background="#FB7676" HorizontalAlignment="Left" Margin="439,366,0,0" VerticalAlignment="Top" Width="114" Height="42" FontWeight="Bold" FontSize="20" FontFamily="Comic Sans MS" Click="Button_Login_Click"/>
+        <PasswordBox Name="TextBox_Password" PasswordChar="●" Margin="192,192,190,285.5" FontSize="18" FontWeight="Bold"/>
+        <CheckBox Name="CheckBox_stayloggedin" Content="" Margin="558,277,409,200" FontWeight="Bold" FontSize="18" RenderTransformOrigin="18.947,0.031" Padding="5,-1,0,0"/>
+        <Button Name="Button_Register" Content="Zum Login" Background="#FF2FDD33" HorizontalAlignment="Left" Margin="439,422,0,0" VerticalAlignment="Top" Width="114" Height="28" FontWeight="Bold" FontFamily="Comic Sans MS" Click="Button_Register_Click"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="192,160,0,0" VerticalAlignment="Top" Width="202" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Benutzername / E-Mail " HorizontalAlignment="Left" Margin="192,76,0,0" VerticalAlignment="Top" Width="214" FontSize="18" FontWeight="Bold"/>
+        <PasswordBox x:Name="TextBox_Password_Copy" PasswordChar="●" Margin="192,268,190,208.5" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Password Wiederholen" HorizontalAlignment="Left" Margin="192,236,0,0" VerticalAlignment="Top" Width="202" FontSize="18" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

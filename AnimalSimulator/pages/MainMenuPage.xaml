@@ -1,0 +1,21 @@
+﻿<Page x:Class="AnimalSimulator.pages.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AnimalSimulator.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="1000"
+      Background="#b7b7b7"
+      Title="MainMenuPage">
+
+    <Grid>
+        <Border Background="#fc6aafff" BorderBrush="Black" BorderThickness="2" CornerRadius="30" HorizontalAlignment="Left" Height="445" Margin="43,52,0,0" VerticalAlignment="Top" Width="922"/>
+        <Label Name="Lable_MessageBox" Background="White" BorderBrush="Black" BorderThickness="2" Content="Deine Nachricht hier! " HorizontalAlignment="Left" Margin="10,88,0,0" VerticalAlignment="Top" Height="50" FontSize="18" FontWeight="Bold"/>
+        <Button Name="Button_Animals" Content="Button" HorizontalAlignment="Left" Margin="392,88,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Animals_Click"/>
+        <Button Name="Button_Shops" Content="Button" HorizontalAlignment="Left" Margin="158,225,0,0" VerticalAlignment="Top" Width="235" Height="92"/>
+        <Button Name="Button_Storage" Content="Button" HorizontalAlignment="Left" Margin="618,225,0,0" VerticalAlignment="Top" Width="235" Height="92"/>
+        <Button Name="Button_unknown" Content="Button" HorizontalAlignment="Left" Margin="392,360,0,0" VerticalAlignment="Top" Width="235" Height="92"/>
+
+    </Grid>
+</Page>
