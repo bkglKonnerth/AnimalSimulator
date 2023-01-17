@@ -18,7 +18,7 @@
         <Button Name="Button_Register" Content="Zum Login" Background="#FF2FDD33" HorizontalAlignment="Left" Margin="439,422,0,0" VerticalAlignment="Top" Width="114" Height="28" FontWeight="Bold" FontFamily="Comic Sans MS" Click="Button_Register_Click"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="192,160,0,0" VerticalAlignment="Top" Width="202" FontSize="18" FontWeight="Bold"/>
         <Label Content="Benutzername / E-Mail " HorizontalAlignment="Left" Margin="192,76,0,0" VerticalAlignment="Top" Width="214" FontSize="18" FontWeight="Bold"/>
-        <PasswordBox x:Name="TextBox_Password_Copy" PasswordChar="●" Margin="192,268,190,208.5" FontSize="18" FontWeight="Bold"/>
+        <PasswordBox Name="TextBox_Password_check" PasswordChar="●" Margin="192,268,190,208.5" FontSize="18" FontWeight="Bold"/>
         <Label Content="Password Wiederholen" HorizontalAlignment="Left" Margin="192,236,0,0" VerticalAlignment="Top" Width="202" FontSize="18" FontWeight="Bold"/>
 
     </Grid>

@@ -10,12 +10,57 @@
       Title="Tiere Übersicht">
 
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,484,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="417,484,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="839,484,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="417,23,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="839,23,0,0" VerticalAlignment="Top" Width="151" Height="44"/>
+        <Button Content="Zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="71" Height="30" Click="Button_Click"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="412" Margin="34,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="219"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="412" Margin="274,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="219"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="412" Margin="750,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="220"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="412" Margin="512,87,0,0" Stroke="Black" VerticalAlignment="Top" Width="220"/>
+
+
+        <Rectangle Name="rectange_pic_animal1" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="34,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="219"/>
+        <Label Name="label_Name_animal1" Content="Tier1" HorizontalAlignment="Left" Margin="114,87,0,0" VerticalAlignment="Top" Width="63" FontWeight="Bold" FontSize="18" FontFamily="Arial Black"/>
+        <ProgressBar Name="progressbar_food_animal1" HorizontalAlignment="Left" Height="30" Margin="91,288,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_health_animal1" HorizontalAlignment="Left" Height="28" Margin="91,334,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_love_animal1" HorizontalAlignment="Left" Height="30" Margin="91,376,0,0" VerticalAlignment="Top" Width="154"/>
+        <Label Name="progress_food_animal1" Content="100%" HorizontalAlignment="Left" Margin="148,288,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_health_animal1" Content="100%" HorizontalAlignment="Left" Margin="148,334,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_love_animal1" Content="100%" HorizontalAlignment="Left" Margin="148,380,0,0" VerticalAlignment="Top" Width="44"/>
+        <Button Name="button_visit_animal1" Content="Visit" HorizontalAlignment="Left" Margin="114,466,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Name="label_type_animal1" Content="Type 1" HorizontalAlignment="Left" Margin="114,248,0,0" VerticalAlignment="Top" Width="63" FontWeight="Bold" FontFamily="Arial Black" Height="24"/>
+       
+        <Rectangle Name="rectange_pic_animal2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="274,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="219"/>
+        <Label Name="label_Name_animal2" Content="Tier2" HorizontalAlignment="Left" Margin="354,87,0,0" VerticalAlignment="Top" Width="63" FontWeight="Bold" FontSize="18" FontFamily="Arial Black"/>
+        <ProgressBar Name="progressbar_food_animal2" HorizontalAlignment="Left" Height="30" Margin="331,288,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_health_animal2" HorizontalAlignment="Left" Height="28" Margin="331,334,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_love_animal2" HorizontalAlignment="Left" Height="30" Margin="331,376,0,0" VerticalAlignment="Top" Width="154"/>
+        <Label Name="progress_food_animal2" Content="100%" HorizontalAlignment="Left" Margin="388,288,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_health_animal2" Content="100%" HorizontalAlignment="Left" Margin="388,334,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_love_animal2" Content="100%" HorizontalAlignment="Left" Margin="388,380,0,0" VerticalAlignment="Top" Width="44"/>
+        <Button Name="button_visit_animal2" Content="Visit" HorizontalAlignment="Left" Margin="354,466,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Name="label_type_animal2" Content="Type 2" HorizontalAlignment="Left" Margin="354,248,0,0" VerticalAlignment="Top" Width="63" FontWeight="Bold" FontFamily="Arial Black" Height="24"/>
+        
+        <Rectangle Name="rectange_pic_animal3" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="512,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="220"/>
+        <Label Name="label_Name_animal3" Content="Tier3" HorizontalAlignment="Left" Margin="592,87,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontSize="18" FontFamily="Arial Black"/>
+        <ProgressBar Name="progressbar_food_animal3" HorizontalAlignment="Left" Height="30" Margin="568,288,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_health_anima3" HorizontalAlignment="Left" Height="28" Margin="568,334,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_love_animal3" HorizontalAlignment="Left" Height="30" Margin="568,376,0,0" VerticalAlignment="Top" Width="154"/>
+        <Label Name="progress_food_animal3" Content="100%" HorizontalAlignment="Left" Margin="626,288,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_health_animal3" Content="100%" HorizontalAlignment="Left" Margin="626,334,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_love_animal3" Content="100%" HorizontalAlignment="Left" Margin="626,380,0,0" VerticalAlignment="Top" Width="44"/>
+        <Button Name="button_visit_animal3" Content="Visit" HorizontalAlignment="Left" Margin="592,466,0,0" VerticalAlignment="Top" Width="74"/>
+        <Label Name="label_type_animal3" Content="Type 3" HorizontalAlignment="Left" Margin="592,248,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontFamily="Arial Black" Height="24"/>
+        
+        <Rectangle Name="rectange_pic_anima4" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="130" Margin="750,118,0,0" Stroke="Black" VerticalAlignment="Top" Width="220"/>
+        <Label Name="label_Name_animal4" Content="Tier4" HorizontalAlignment="Left" Margin="832,87,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontSize="18" FontFamily="Arial Black"/>
+        <ProgressBar Name="progressbar_food_animal4" HorizontalAlignment="Left" Height="30" Margin="808,288,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_health_animal4" HorizontalAlignment="Left" Height="28" Margin="808,334,0,0" VerticalAlignment="Top" Width="154"/>
+        <ProgressBar Name="progressbar_love_animal4" HorizontalAlignment="Left" Height="30" Margin="808,376,0,0" VerticalAlignment="Top" Width="154"/>
+        <Label Name="progress_food_animal4" Content="100%" HorizontalAlignment="Left" Margin="866,288,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_health_animal4" Content="100%" HorizontalAlignment="Left" Margin="866,334,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="progress_love_animal4" Content="100%" HorizontalAlignment="Left" Margin="866,380,0,0" VerticalAlignment="Top" Width="44"/>
+        <Button Name="button_visit_animal4" Content="Visit" HorizontalAlignment="Left" Margin="832,466,0,0" VerticalAlignment="Top" Width="74"/>
+        <Label Name="label_type_animal4" Content="Type 4" HorizontalAlignment="Left" Margin="832,248,0,0" VerticalAlignment="Top" Width="62" FontWeight="Bold" FontFamily="Arial Black" Height="24"/>
+
 
     </Grid>
 </Page>
