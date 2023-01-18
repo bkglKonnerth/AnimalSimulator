@@ -16,6 +16,10 @@ namespace AnimalSimulator
             password varchar(100) not null
             );
 
+            CREATE TABLE sessions (
+            hwid varchar(250) primary key not null,
+            userID int not null
+            );
 
         */
     }

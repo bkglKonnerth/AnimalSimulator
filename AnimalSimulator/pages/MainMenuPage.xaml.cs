@@ -11,7 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using MySql.Data.MySqlClient;
 using System.Windows.Shapes;
+using System.Threading;
+
+using AnimalSimulator.utils;
 
 namespace AnimalSimulator.pages
 {
@@ -23,11 +27,28 @@ namespace AnimalSimulator.pages
         public MainMenuPage()
         {
             InitializeComponent();
-        }
 
+        }
         private void Button_Animals_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new pages.AnimalPage());
         }
+
+        private void Button_logout_Click(object sender, RoutedEventArgs e)
+        {
+            MySQL.mySqlCon.Open();
+
+            MySqlCommand sqlcommand = MySQL.buildMySqlCommand("DELETE FROM sessions WHERE hwid='" + GameManager.user.hwid + "';");
+            sqlcommand.ExecuteNonQuery();
+
+            MessageBox.Show("Erfolgreich ausgeloggt! Programm schließt in 4 Sekunden!", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            MySQL.mySqlCon.Close();
+
+            Thread.Sleep(4000);
+
+            Application.Current.Shutdown();
+        }
+
     }
 }

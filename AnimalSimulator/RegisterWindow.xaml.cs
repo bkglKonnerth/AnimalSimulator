@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using AnimalSimulator.utils;
+using System.Data;
 
 namespace AnimalSimulator
 {
@@ -60,8 +61,29 @@ namespace AnimalSimulator
 
                 MySQL.mySqlCon.Open();
 
-                MySqlCommand command =  MySQL.buildMySqlCommand("INSERT IGNOR user SET username ='" + username + "', password='" + password + "';");
-                command.ExecuteNonQuery();
+                MySqlDataAdapter mySqlDataAdapter = MySQL.buildMySqlDataAdapter("SELECT * FROM user WHERE username='" + username + "';");
+                DataTable dataTable = new DataTable();
+
+                mySqlDataAdapter.Fill(dataTable);
+
+                if(dataTable.Rows.Count == 0)
+                {
+                    MySqlCommand command = MySQL.buildMySqlCommand("INSERT INTO user SET username ='" + username + "', password='" + password + "';");
+                    command.ExecuteNonQuery();
+
+                    LoginWindow loginWindow = new LoginWindow();
+                    loginWindow.Show();
+                    this.Close();
+
+                    MessageBox.Show("Erfolgreich Regestriert", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Dieser User Existiert bereits!", "Fehler", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+
+
+
 
                 MySQL.mySqlCon.Close();
             }
