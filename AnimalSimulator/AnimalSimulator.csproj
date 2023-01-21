@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -57,10 +59,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="enums\AnimalType.cs" />
+    <Compile Include="interfaces\AnimalImpl.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="objects\Animal.cs" />
+    <Compile Include="objects\AnimalObjects\AnimalObject.cs" />
     <Compile Include="objects\User.cs" />
+    <Compile Include="pages\AnimalLivePage.xaml.cs">
+      <DependentUpon>AnimalLivePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\AnimalShopPage.xaml.cs">
+      <DependentUpon>AnimalShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="utils\SQLDefault.cs" />
     <Compile Include="utils\MySQL.cs" />
     <Compile Include="pages\AnimalPage.xaml.cs">
@@ -90,6 +102,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="pages\AnimalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\AnimalLivePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\AnimalShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +148,30 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="pics\tintenfischicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\adler.png" />
+    <Resource Include="pics\goldfisch.png" />
+    <Resource Include="pics\hai.png" />
+    <Resource Include="pics\hund.png" />
+    <Resource Include="pics\katze.png" />
+    <Resource Include="pics\maus.png" />
+    <Resource Include="pics\tintenfisch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\goldfischicon.png" />
+    <Resource Include="pics\haiicon.png" />
+    <Resource Include="pics\hundicon.png" />
+    <Resource Include="pics\katzeicon.png" />
+    <Resource Include="pics\mausicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\adlericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pages\AnimalPages\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

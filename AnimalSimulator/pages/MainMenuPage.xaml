@@ -11,10 +11,11 @@
 
     <Grid>
         <Border Background="#fc6aafff" BorderBrush="Black" BorderThickness="2" CornerRadius="30" HorizontalAlignment="Left" Height="445" Margin="43,52,0,0" VerticalAlignment="Top" Width="922"/>
-        <Button Name="Button_Animals" Content="Button" HorizontalAlignment="Left" Margin="384,171,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Animals_Click"/>
-        <Button Name="Button_Shops" Content="Button" HorizontalAlignment="Left" Margin="150,308,0,0" VerticalAlignment="Top" Width="235" Height="92"/>
-        <Button Name="Button_Storage" Content="Button" HorizontalAlignment="Left" Margin="610,308,0,0" VerticalAlignment="Top" Width="235" Height="92"/>
+        <Button Name="Button_Animals" Content="Animals" HorizontalAlignment="Left" Margin="386,110,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Animals_Click"/>
+        <Button Name="Button_Shops" Content="Animal Shop" HorizontalAlignment="Left" Margin="150,247,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Shops_Click"/>
+        <Button Name="Button_Storage" Content="Barn Shop" HorizontalAlignment="Left" Margin="622,247,0,0" VerticalAlignment="Top" Width="235" Height="92"/>
         <Button Name="Button_logout" Content="Logout" HorizontalAlignment="Left" Margin="826,425,0,0" VerticalAlignment="Top" Width="100" Height="43" Click="Button_logout_Click"/>
+        <Button Name="Button_Editmenu" Content="Edit" HorizontalAlignment="Left" Margin="386,360,0,0" VerticalAlignment="Top" Width="235" Height="91" Click="Button_logout_Click"/>
 
     </Grid>
 </Page>

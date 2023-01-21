@@ -127,8 +127,6 @@ namespace AnimalSimulator
 
             mySqlDataAdapter.Fill(dataTable);
 
-            
-
 
             if (dataTable.Rows.Count == 1)
             {

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\App.xaml
-5386002528
+7-1140312294
 
-13-479455446
+191469400055
 119-234927085
-LoginWindow.xaml;MainWindow.xaml;pages\AnimalPage.xaml;pages\MainMenuPage.xaml;RegisterWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;pages\AnimalPage.xaml;pages\AnimalLivePage.xaml;pages\AnimalShopPage.xaml;pages\MainMenuPage.xaml;RegisterWindow.xaml;
 
-False
+True
 

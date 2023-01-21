@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Threading;
 
 using AnimalSimulator.utils;
+using AnimalSimulator.pages;
 
 namespace AnimalSimulator.pages
 {
@@ -50,5 +51,9 @@ namespace AnimalSimulator.pages
             Application.Current.Shutdown();
         }
 
+        private void Button_Shops_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AnimalShopPage());
+        }
     }
 }

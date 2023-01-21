@@ -71,3 +71,7 @@ C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\AnimalSimul
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\AnimalSimulator.csproj.CopyComplete
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\AnimalSimulator.exe
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\AnimalSimulator.pdb
+C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalShopPage.g.cs
+C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalShopPage.baml
+C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalLivePage.g.cs
+C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalLivePage.baml

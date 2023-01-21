@@ -12,6 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Windows.Threading;
+using MySql.Data.MySqlClient;
+using System.Data;
+
+using AnimalSimulator.objects.AnimalObjects;
+using AnimalSimulator.objects;
+using AnimalSimulator.enums;
+using AnimalSimulator.utils;
 
 namespace AnimalSimulator
 {
@@ -20,10 +29,126 @@ namespace AnimalSimulator
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Animal> animals = GameManager.animalContainer;
+        DispatcherTimer timer = new DispatcherTimer();
+        Random random = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
             ContentFrame.Content = new pages.MainMenuPage();
+
+            timer.Interval = TimeSpan.FromMilliseconds(1000);
+            timer.Tick += timerTick;
+            timer.Start();
+
         }
+
+        private void timerTick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < animals.Count; i++)
+            {
+                if (!animals[i].dead)
+                {
+                    if (animals[i].straving)
+                    {
+                        starve(animals[i]);
+                    }
+                    else if (animals[i].nextFoodTime <= 0)
+                    {
+                        animals[i].straving = true;
+                        animals[i].straveTimes = random.Next(10, 240);
+
+
+                        int calcFoodTime = random.Next(40000, 70000);
+                        animals[i].nextFoodTime = calcFoodTime;
+
+                        Console.WriteLine(calcFoodTime);
+
+                        starve(animals[i]);
+                    }
+                    else
+                    {
+                        reduceFoodTime();
+                    }
+                }
+            }
+
+
+        }
+
+        private void starve(Animal animal)
+        {       
+                if(animal.straveTimes == 0)
+                {
+                    animal.straving = false;
+
+                }else
+                {
+                    animal.straveTimes -= 1;
+                    animal.foodLevel -= 0.5;
+                }
+        }
+        private void reduceFoodTime()
+        {
+            foreach(Animal allAnimals in animals)
+            {
+                allAnimals.nextFoodTime -= 1000;
+            }
+        }
+
+        private void loadAnimalsFromDB()
+        {
+            User user = GameManager.user;
+            MySqlDataAdapter adapter = MySQL.buildMySqlDataAdapter("SELECT * FROM animals WHERE ownerID=" + user.userID + ";");
+            DataTable dataTable = new DataTable();
+
+            adapter.Fill(dataTable);
+
+            Animal animal;
+
+            if(dataTable.Rows.Count > 0)
+            {
+                for (int i = 0; i < dataTable.Rows.Count; i++)
+                {
+                    animal = new Animal();
+
+                    String type = (string)dataTable.Rows[i].ItemArray[1];
+
+                    switch (type)
+                    {
+                        case "Hund":
+                            animal.type = AnimalType.Hund;
+                            break;
+                        case "Katze":
+                            animal.type = AnimalType.Katze;
+                            break;
+                        case "Maus":
+                            animal.type = AnimalType.Maus;
+                            break;
+                        case "Goldfisch":
+                            animal.type = AnimalType.Goldfisch;
+                            break;
+                        case "Hai":
+                            animal.type = AnimalType.Hai;
+                            break;
+                        case "Tintenfisch":
+                            animal.type = AnimalType.Tintenfisch;
+                            break;
+                        case "Adler":
+                            animal.type = AnimalType.Adler;
+                            break;
+
+                    }
+
+
+
+                }
+            }
+
+            //Convert.ToInt32(dataTable.Rows[0].ItemArray[1]);
+
+        }
+
     }
 }
