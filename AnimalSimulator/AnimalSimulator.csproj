@@ -60,12 +60,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="enums\AnimalType.cs" />
-    <Compile Include="interfaces\AnimalImpl.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="objects\Animal.cs" />
-    <Compile Include="objects\AnimalObjects\AnimalObject.cs" />
+    <Compile Include="objects\AnimalObjects\Adler.cs" />
+    <Compile Include="objects\AnimalObjects\Goldfisch.cs" />
+    <Compile Include="objects\AnimalObjects\Hai.cs" />
+    <Compile Include="objects\AnimalObjects\Hund.cs" />
+    <Compile Include="objects\AnimalObjects\Katze.cs" />
+    <Compile Include="objects\AnimalObjects\Maus.cs" />
+    <Compile Include="objects\AnimalObjects\Tintenfisch.cs" />
     <Compile Include="objects\User.cs" />
     <Compile Include="pages\AnimalLivePage.xaml.cs">
       <DependentUpon>AnimalLivePage.xaml</DependentUpon>

@@ -22,34 +22,6 @@ namespace AnimalSimulator.objects
         public Boolean straving { get; set; } = false;
         public int nextFoodTime { get; set; } = 0;
 
-
-        public virtual void feedAnimal(int amount)
-        {
-            foodLevel += amount;
-        }
-        public virtual void healAnimal(int amount)
-        {
-            healthLevel += amount;
-        }
-        public virtual void loveAnimal(int amount)
-        {
-            loveLevel += amount;
-
-        }
-        public virtual void removeFeed(int amount)
-        {
-            foodLevel -= amount;
-        }
-        public virtual void removeHeal(int amount)
-        {
-            healthLevel -= amount;
-        }
-        public virtual void removeLove(int amount)
-        {
-            loveLevel -= amount;
-        }
-
-
         public virtual BitmapImage getAnimalPic()
         {
             return null;

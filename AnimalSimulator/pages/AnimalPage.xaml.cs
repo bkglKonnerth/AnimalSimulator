@@ -78,17 +78,12 @@ namespace AnimalSimulator.pages
                 checkStats(targetAnimal);
 
                 BitmapImage animalPic = new BitmapImage(new Uri("pack://application:,,,/pics/" + targetAnimal.type + "icon.png"));
-                //Hier würden bsp. die ganzen objekte wie Hund, Katze, Maus ihre "getAnimalPic" ausführe, um das Bild für sich zu überschreiben
 
                 String name = Convert.ToString(targetAnimal.type);
 
                 if (targetAnimal.dead)
                 {
                     name += "(Dead :C)";
-
-                    animalPic.BeginInit();
-                    animalPic.Rotation = Rotation.Rotate180;
-                    animalPic.EndInit();
                 }
 
 

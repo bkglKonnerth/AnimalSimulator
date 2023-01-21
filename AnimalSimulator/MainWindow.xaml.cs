@@ -38,6 +38,8 @@ namespace AnimalSimulator
             InitializeComponent();
             ContentFrame.Content = new pages.MainMenuPage();
 
+            loadAnimalsFromDB();
+
             timer.Interval = TimeSpan.FromMilliseconds(1000);
             timer.Tick += timerTick;
             timer.Start();
@@ -73,8 +75,6 @@ namespace AnimalSimulator
                     }
                 }
             }
-
-
         }
 
         private void starve(Animal animal)
@@ -111,42 +111,52 @@ namespace AnimalSimulator
             {
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
-                    animal = new Animal();
-
+                    
                     String type = (string)dataTable.Rows[i].ItemArray[1];
 
                     switch (type)
                     {
                         case "Hund":
+                            animal = new Hund();
                             animal.type = AnimalType.Hund;
                             break;
                         case "Katze":
+                            animal = new Katze();
                             animal.type = AnimalType.Katze;
                             break;
                         case "Maus":
+                            animal = new Maus();
                             animal.type = AnimalType.Maus;
                             break;
                         case "Goldfisch":
+                            animal = new Goldfisch();
                             animal.type = AnimalType.Goldfisch;
                             break;
                         case "Hai":
+                            animal = new Hai();
                             animal.type = AnimalType.Hai;
                             break;
                         case "Tintenfisch":
+                            animal = new Tintenfisch();
                             animal.type = AnimalType.Tintenfisch;
                             break;
                         case "Adler":
+                            animal = new Adler();
                             animal.type = AnimalType.Adler;
                             break;
-
+                        default:
+                            animal = new Animal();
+                            break;
                     }
 
+                    animal.foodLevel = Convert.ToInt32(dataTable.Rows[i].ItemArray[2]);
+                    animal.healthLevel = Convert.ToInt32(dataTable.Rows[i].ItemArray[3]);
+                    animal.loveLevel = Convert.ToInt32(dataTable.Rows[i].ItemArray[4]);
 
+                    GameManager.animalContainer.Add(animal);
 
                 }
             }
-
-            //Convert.ToInt32(dataTable.Rows[0].ItemArray[1]);
 
         }
 

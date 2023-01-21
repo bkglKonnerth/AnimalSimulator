@@ -18,6 +18,36 @@ using AnimalSimulator.objects;
 using AnimalSimulator.objects.AnimalObjects;
 using AnimalSimulator.utils;
 
+// 1. Automatisch speichern (in DB)
+// 2. Gehege kaufen, bevor man Tier kaufen kann
+// 3. Gehege wieder verkaufen können
+
+
+// - Geld einführen => 
+// - Hund: Füttern (50€), Streicheln (25€)
+// - Katze: Füttern (50€), Streicheln (25€)
+// - Maus: Füttern (50€), Streicheln (25€)
+
+// - Goldfisch: Füttern (100€), Streicheln (75€)
+// - Adler: Füttern (200€), Streicheln (120€)
+// - Hai: Füttern (350€), Streicheln (180€)
+// - Tintenfisch: Füttern (450€), Streicheln (250€)
+
+// - Essensshop, wo man spezial essen kaufen kann, z.B. Tier wiederbeleben oder Leben hinzuzufügen =>
+// - Normales Futter  - 10€
+// - Biggi (Gibt wieder Leben) - 150€
+// - OP Goldapfel (Wiederbelebung) - 500€
+
+// - Tiershop preise setzten =>
+// - Hund: 800€
+// - Katze: 800€
+// - Maus: 800€
+
+// - Goldfisch: 2000€
+// - Adler: 6000€
+// - Hai: 9000€
+// - Tintenfisch: 14000€
+
 
 namespace AnimalSimulator.pages
 {
@@ -28,7 +58,7 @@ namespace AnimalSimulator.pages
     {
 
         DispatcherTimer timer = new DispatcherTimer();
-        Animal animal = new AnimalObject();
+        Animal animal;
         Random random = new Random();
 
         public AnimalLivePage(int id)
@@ -55,17 +85,30 @@ namespace AnimalSimulator.pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            if (animal.foodLevel != 100)
+            if (!animal.dead)
             {
-                animal.removeFeed(5);
+                if (animal.foodLevel <= 100)
+                {
+                    if (animal.foodLevel > 95)
+                    {
+                        double fill = 100 - animal.foodLevel;
+                        animal.foodLevel += fill;
+                    }
+                    else
+                    {
+                        animal.foodLevel += 5;
+                    }
 
-            }
+                }
 
-            if (animal.foodLevel == 100)
+                if (animal.foodLevel == 100)
+                {
+                    animal.straveTimes = 0;
+                    animal.straving = false;
+                }
+            }else
             {
-                animal.straveTimes = 0;
-                animal.straving = false;
+                MessageBox.Show("Dein Tier ist Tot!", "Nein!", MessageBoxButton.OKCancel, MessageBoxImage.Error);
             }
 
         }
@@ -90,12 +133,15 @@ namespace AnimalSimulator.pages
         {
             if(animal.foodLevel <= 0)
             {
-                animal.removeHeal(10);
+                animal.foodLevel -= 10;
             }
 
             if(animal.foodLevel <= 60)
             {
-                animal.removeLove(5);
+                if(animal.loveLevel >= 3)
+                {
+                    animal.loveLevel -= 3;
+                }
             }
 
             if(animal.healthLevel <= 0)

@@ -26,7 +26,7 @@ namespace AnimalSimulator.pages
     /// </summary>
     public partial class AnimalShopPage : Page
     {
-        AnimalObject animalObject;
+        Animal animal;
 
         public AnimalShopPage()
         {
@@ -35,37 +35,79 @@ namespace AnimalSimulator.pages
 
         private void button_buy_animal1_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Hund, "Hund, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Hund();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private void button_buy_animal2_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Katze, "Katze, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Katze();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private void button_buy_animal3_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Maus, "Maus, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Maus();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private void button_buy_animal4_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Goldfisch, "Goldfisch, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Goldfisch();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private void button_buy_animal5_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Adler, "Adler, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Adler();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private void button_buy_animal6_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Hai, "Hai, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Hai();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private void button_buy_animal7_Click(object sender, RoutedEventArgs e)
         {
-            buyAnimal(AnimalType.Tintenfisch, "Tintenfisch, wau wau");
+            if (!isAnimalCountMaxed())
+            {
+                animal = new Tintenfisch();
+
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
+            }
         }
 
         private Boolean isAnimalCountMaxed()
@@ -88,36 +130,11 @@ namespace AnimalSimulator.pages
                 return false;
             } 
         }
-
-        private void buyAnimal(AnimalType type, String name)
-        {
-            if (!isAnimalCountMaxed())
-            {
-                animalObject = new AnimalObject();
-                animalObject.type = type;
-
-                GameManager.animalContainer.Add(animalObject);
-                saveAnimalToDatabase(type);
-                openSuccesfullMessageBox();
-            }
-        }
-
         private void openSuccesfullMessageBox()
         {
             MessageBox.Show("Das Tier wurde erfolgreich gekauft! Du kannst noch " + (4 - GameManager.animalContainer.Count) + " Tier kaufen!", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void saveAnimalToDatabase(AnimalType type)
-        {
-            MySQL.mySqlCon.Open();
-
-            String animalType = Convert.ToString(type);
-            MySqlCommand command =  MySQL.buildMySqlCommand("INSERT INTO animals SET animaltype='" + animalType + "', foodlevel=100, healthlevel=100, lovelevel=100, ownerID=" + GameManager.user.userID + ";");
-            command.ExecuteNonQuery();
-
-            MySQL.mySqlCon.Close();
-
-        }
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {
