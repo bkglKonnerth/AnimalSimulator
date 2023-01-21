@@ -15,5 +15,7 @@ namespace AnimalSimulator.objects
 
         public String password { get; set; }
 
+        public int cash { get; set; } = 800;
+
     }
 }

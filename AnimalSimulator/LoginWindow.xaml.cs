@@ -33,8 +33,9 @@ namespace AnimalSimulator
                 mySqlDataAdapter.Fill(dataTable);
 
                 GameManager.user.hwid = getHWID();
-                GameManager.user.username = (String)dataTable.Rows[0].ItemArray[1];
-                GameManager.user.password = (String)dataTable.Rows[0].ItemArray[2];
+                GameManager.user.cash = Convert.ToInt32(dataTable.Rows[0].ItemArray[1]);
+                GameManager.user.username = (String)dataTable.Rows[0].ItemArray[2];
+                GameManager.user.password = (String)dataTable.Rows[0].ItemArray[3];
 
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
@@ -68,6 +69,7 @@ namespace AnimalSimulator
                     GameManager.user.username = username;
                     GameManager.user.password = password;
                     GameManager.user.hwid = userHWID;
+                    GameManager.user.cash = Convert.ToInt32(dataTable.Rows[0].ItemArray[1]);
 
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
@@ -97,9 +99,6 @@ namespace AnimalSimulator
             registerWindow.Show();
             this.Close();
         }
-
-        // Check if HWID reg. => Use Data from database => Login
-        // If Pressed Logout => Drop Row Where HWID = No Remember Me!
 
         private String getHWID()
         {
@@ -131,6 +130,7 @@ namespace AnimalSimulator
             if (dataTable.Rows.Count == 1)
             {
                 GameManager.user.userID = Convert.ToInt32(dataTable.Rows[0].ItemArray[1]);
+                
                 return true;
             }
             else

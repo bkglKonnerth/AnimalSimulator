@@ -1,21 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 using AnimalSimulator.objects;
-using AnimalSimulator.objects.AnimalObjects;
 using AnimalSimulator.utils;
 
 // 1. Automatisch speichern (in DB)
@@ -131,25 +121,42 @@ namespace AnimalSimulator.pages
 
         private void checkStats()
         {
-            if(animal.foodLevel <= 0)
+            if (animal.foodLevel <= 0)
             {
-                animal.foodLevel -= 10;
-            }
-
-            if(animal.foodLevel <= 60)
-            {
-                if(animal.loveLevel >= 3)
+                if (animal.healthLevel >= 1.5)
                 {
-                    animal.loveLevel -= 3;
+                    animal.straving = false;
+                    animal.straveTimes = 0;
+
+                    animal.healthLevel -= 1.5;
                 }
             }
 
-            if(animal.healthLevel <= 0)
+            if (animal.foodLevel <= 60)
+            {
+                if (animal.loveLevel >= 1.5)
+                {
+                    animal.loveLevel -= 1.5;
+                }
+            }
+
+            if (animal.healthLevel <= 0)
             {
                 animal.dead = true;
             }
 
         }
 
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(animal.loveLevel <= 95)
+            {
+                animal.loveLevel += 5;
+            }else
+            {
+                double diff = 100 - animal.loveLevel;
+                animal.loveLevel += diff;
+            }
+        }
     }
 }

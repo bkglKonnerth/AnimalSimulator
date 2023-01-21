@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
+﻿using System.Collections.Generic;
 
 using AnimalSimulator.objects;
-using AnimalSimulator.objects.AnimalObjects;
 
 namespace AnimalSimulator.utils
 {
@@ -18,6 +9,9 @@ namespace AnimalSimulator.utils
         public static User user = new User();
 
         public static List<Animal> animalContainer = new List<Animal>();
+        public static List<Barn> barnContainer = new List<Barn>();
+
+        public static int page = 1;
 
     }
 

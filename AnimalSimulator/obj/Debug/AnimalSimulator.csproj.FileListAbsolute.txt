@@ -75,3 +75,5 @@ C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\Anima
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalShopPage.baml
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalLivePage.g.cs
 C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\AnimalLivePage.baml
+C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\BarnShopPage.g.cs
+C:\Users\Fabian\source\repos\AnimalShooter\AnimalSimulator\obj\Debug\pages\BarnShopPage.baml

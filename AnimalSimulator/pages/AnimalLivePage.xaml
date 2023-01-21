@@ -10,7 +10,7 @@
       Title="AnimalOnePage">
 
     <Grid>
-        <Image Name="Image" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="785"/>
+        <Image Name="Image" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="785" MouseDown="Image_MouseDown"/>
         <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="550" Margin="790,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="210"/>
         <Button Name="button_back" Content="Zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" Height="24" Click="button_back_Click"/>
         <Button Content="Füttern" HorizontalAlignment="Left" Margin="840,268,0,0" VerticalAlignment="Top" Width="150" Height="37" Click="Button_Click"/>

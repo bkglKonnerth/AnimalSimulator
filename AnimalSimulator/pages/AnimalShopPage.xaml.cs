@@ -35,106 +35,145 @@ namespace AnimalSimulator.pages
 
         private void button_buy_animal1_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
                 animal = new Hund();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
         private void button_buy_animal2_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
                 animal = new Katze();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
         private void button_buy_animal3_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
                 animal = new Maus();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
         private void button_buy_animal4_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
                 animal = new Goldfisch();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
         private void button_buy_animal5_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
                 animal = new Adler();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
         private void button_buy_animal6_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
                 animal = new Hai();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
         private void button_buy_animal7_Click(object sender, RoutedEventArgs e)
         {
-            if (!isAnimalCountMaxed())
-            {
-                animal = new Tintenfisch();
+            animal = new Tintenfisch();
 
-                GameManager.animalContainer.Add(animal);
-                openSuccesfullMessageBox();
+            if (gehegeExists(animal))
+            {
+                saveAnimal(animal);
             }
         }
 
-        private Boolean isAnimalCountMaxed()
+        private Boolean gehegeExists(Animal animal)
         {
-            if(GameManager.animalContainer.Count >= 4)
-            {
-                button_buy_animal1.IsEnabled = false;
-                button_buy_animal2.IsEnabled = false;
-                button_buy_animal3.IsEnabled = false;
-                button_buy_animal4.IsEnabled = false;
-                button_buy_animal5.IsEnabled = false;
-                button_buy_animal6.IsEnabled = false;
-                button_buy_animal7.IsEnabled = false;
+            //If gehege existiert 
+            //If gehege type = richtig
+            //
 
-                MessageBox.Show("Du kannst keine weiteren Tiere kaufen!");
-
-                return true;
-            }else
+            if(GameManager.barnContainer.Count == 0)
             {
                 return false;
+
             } 
+            else if(GameManager.barnContainer.Count > GameManager.animalContainer.Count)
+            {
+                String type;
+             
+                String barnType = Convert.ToString(GameManager.barnContainer[GameManager.animalContainer.Count].type);
+                String animalType = Convert.ToString(animal.type);
+
+                type = barnType + animalType;
+
+                switch (type)
+                {
+                    case "BasketHund":
+                        return true;
+                    case "BasketKatze":
+                        return true;
+                    case "CageMaus":
+                        return true;
+                    case "NestAdler":
+                        return true;
+                    case "WaterGoldfisch":
+                        return true;
+                    case "WaterHai":
+                        return true;
+                    case "WaterTintenfisch":
+                        return true;
+                    default:
+                        MessageBox.Show("Du musst vorher noch ein Gehege mit dem richtigen typen kaufen!", "Nein!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Du musst vorher noch ein Gehege mit dem richtigen typen kaufen!", "Nein!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return false;
+            }
+
+        }
+
+        private void saveAnimal(Animal animal)
+        {
+            saveAnimalToDatabase(animal);
+            GameManager.animalContainer.Add(animal);
+            openSuccesfullMessageBox();
+        }
+
+        private void saveAnimalToDatabase(Animal animal)
+        {
+            MySQL.mySqlCon.Open();
+
+            String animalType = Convert.ToString(animal.type);
+            MySqlCommand command = MySQL.buildMySqlCommand("INSERT INTO animals SET animaltype='" + animalType + "', foodlevel=100, healthlevel=100, lovelevel=100, ownerID=" + GameManager.user.userID + ";");
+            command.ExecuteNonQuery();
+
+            MySQL.mySqlCon.Close();
+
         }
         private void openSuccesfullMessageBox()
         {
-            MessageBox.Show("Das Tier wurde erfolgreich gekauft! Du kannst noch " + (4 - GameManager.animalContainer.Count) + " Tier kaufen!", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Das Tier wurde erfolgreich gekauft!", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {

@@ -1,19 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using MySql.Data.MySqlClient;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using AnimalSimulator.utils;
 using System.Data;
 
 namespace AnimalSimulator
@@ -68,7 +55,7 @@ namespace AnimalSimulator
 
                 if(dataTable.Rows.Count == 0)
                 {
-                    MySqlCommand command = MySQL.buildMySqlCommand("INSERT INTO user SET username ='" + username + "', password='" + password + "';");
+                    MySqlCommand command = MySQL.buildMySqlCommand("INSERT INTO user SET cash=800, username ='" + username + "', password='" + password + "';");
                     command.ExecuteNonQuery();
 
                     LoginWindow loginWindow = new LoginWindow();

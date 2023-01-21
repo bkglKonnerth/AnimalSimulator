@@ -60,6 +60,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="enums\AnimalType.cs" />
+    <Compile Include="enums\BarnType.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -71,12 +72,20 @@
     <Compile Include="objects\AnimalObjects\Katze.cs" />
     <Compile Include="objects\AnimalObjects\Maus.cs" />
     <Compile Include="objects\AnimalObjects\Tintenfisch.cs" />
+    <Compile Include="objects\Barn.cs" />
+    <Compile Include="objects\BarnObjects\BasketBarn.cs" />
+    <Compile Include="objects\BarnObjects\CageBarn.cs" />
+    <Compile Include="objects\BarnObjects\NestBarn.cs" />
+    <Compile Include="objects\BarnObjects\WaterBarn.cs" />
     <Compile Include="objects\User.cs" />
     <Compile Include="pages\AnimalLivePage.xaml.cs">
       <DependentUpon>AnimalLivePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\AnimalShopPage.xaml.cs">
       <DependentUpon>AnimalShopPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\BarnShopPage.xaml.cs">
+      <DependentUpon>BarnShopPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="utils\SQLDefault.cs" />
     <Compile Include="utils\MySQL.cs" />
@@ -115,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\AnimalShopPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\BarnShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,7 +189,19 @@
     <Resource Include="pics\adlericon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="pages\AnimalPages\" />
+    <Resource Include="pics\Korbchen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\Käfig.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\Nest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\Aquarium.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
