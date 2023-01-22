@@ -13,7 +13,7 @@
         <Image Name="Image" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="785" MouseDown="Image_MouseDown"/>
         <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="550" Margin="790,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="210"/>
         <Button Name="button_back" Content="Zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" Height="24" Click="button_back_Click"/>
-        <Button Content="Füttern" HorizontalAlignment="Left" Margin="840,268,0,0" VerticalAlignment="Top" Width="150" Height="37" Click="Button_Click"/>
+        <Button Content="Füttern" FontWeight="Bold" HorizontalAlignment="Left" Margin="840,312,0,0" VerticalAlignment="Top" Width="150" Height="37" Click="Button_Click"/>
 
         <ProgressBar Name="progressbar_food" HorizontalAlignment="Left" Height="30" Margin="840,44,0,0" VerticalAlignment="Top" Width="154"/>
         <ProgressBar Name="progressbar_health" HorizontalAlignment="Left" Height="28" Margin="840,90,0,0" VerticalAlignment="Top" Width="154"/>
@@ -21,6 +21,7 @@
         <Label Name="progress_food" Content="100%" HorizontalAlignment="Left" Margin="897,44,0,0" VerticalAlignment="Top" Width="44"/>
         <Label Name="progress_health" Content="100%" HorizontalAlignment="Left" Margin="897,90,0,0" VerticalAlignment="Top" Width="44"/>
         <Label Name="progress_love" Content="100%" HorizontalAlignment="Left" Margin="897,136,0,0" VerticalAlignment="Top" Width="44"/>
+        <Label Name="label_cash" Content="Geld:" FontFamily="Arial" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="840,429,0,0" VerticalAlignment="Top" Width="141"/>
 
     </Grid>
 </Page>

@@ -18,11 +18,12 @@ namespace AnimalSimulator
             );
 
             CREATE TABLE animals (
-	        animalID int primary key not null auto_increment,
-            animaltype varchar(20) not null,
-            foodlevel double not null,
-            healthlevel double not null,
-            lovelevel double not null
+	        animalID bigint(8) primary key not null auto_increment,
+	        animaltype varchar(20) not null,
+	        foodlevel double not null,
+	        healthlevel double not null,
+	        lovelevel double not null,
+	        ownerID int not null
             );
 
             CREATE TABLE animalFor(

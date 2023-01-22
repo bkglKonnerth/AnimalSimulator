@@ -53,5 +53,10 @@ namespace AnimalSimulator.pages
         {
             NavigationService.Navigate(new BarnShopPage());
         }
+
+        private void Button_Editmenu_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Soon!");
+        }
     }
 }

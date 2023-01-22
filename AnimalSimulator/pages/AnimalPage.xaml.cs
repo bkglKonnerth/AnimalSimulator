@@ -19,7 +19,6 @@ namespace AnimalSimulator.pages
     public partial class AnimalPage : Page
     {
         DispatcherTimer timer = new DispatcherTimer();
-
         public AnimalPage()
         {
             InitializeComponent();
@@ -150,7 +149,7 @@ namespace AnimalSimulator.pages
 
                         case 0:
                             image_animal1.Source = animalPic;
-                            label_Name_animal1.Name = name;
+                            label_Name_animal1.Name = Convert.ToString(targetAnimal.type);
                             progressbar_food_animal1.Value = targetAnimal.foodLevel;
                             progressbar_love_animal1.Value = targetAnimal.loveLevel;
                             progressbar_health_animal1.Value = targetAnimal.healthLevel;
@@ -162,7 +161,7 @@ namespace AnimalSimulator.pages
                             break;
                         case 1:
                             image_animal2.Source = animalPic;
-                            label_Name_animal2.Name = name;
+                            label_Name_animal2.Name = Convert.ToString(targetAnimal.type);
                             progressbar_food_animal2.Value = targetAnimal.foodLevel;
                             progressbar_love_animal2.Value = targetAnimal.loveLevel;
                             progressbar_health_animal2.Value = targetAnimal.healthLevel;
@@ -173,7 +172,7 @@ namespace AnimalSimulator.pages
                             break;
                         case 2:
                             image_animal3.Source = animalPic;
-                            label_Name_animal3.Name = name;
+                            label_Name_animal3.Name = Convert.ToString(targetAnimal.type);
                             progressbar_food_animal3.Value = targetAnimal.foodLevel;
                             progressbar_love_animal3.Value = targetAnimal.loveLevel;
                             progressbar_health_anima3.Value = targetAnimal.healthLevel;
@@ -184,7 +183,7 @@ namespace AnimalSimulator.pages
                             break;
                         case 3:
                             image_animal4.Source = animalPic;
-                            label_Name_animal4.Name = name;
+                            label_Name_animal4.Name = Convert.ToString(targetAnimal.type);
                             progressbar_food_animal4.Value = targetAnimal.foodLevel;
                             progressbar_love_animal4.Value = targetAnimal.loveLevel;
                             progressbar_health_animal4.Value = targetAnimal.healthLevel;
@@ -209,12 +208,16 @@ namespace AnimalSimulator.pages
         {
             if (animal.foodLevel <= 0)
             {
-                if(animal.healthLevel >= 1.5)
+                if (animal.healthLevel >= 1.5)
                 {
                     animal.straving = false;
                     animal.straveTimes = 0;
 
                     animal.healthLevel -= 1.5;
+                }
+                else
+                {
+                    animal.healthLevel = 0;
                 }
             }
 
@@ -223,6 +226,11 @@ namespace AnimalSimulator.pages
                 if (animal.loveLevel >= 1.5)
                 {
                     animal.loveLevel -= 1.5;
+
+                }
+                else
+                {
+                    animal.healthLevel = 0;
                 }
             }
 

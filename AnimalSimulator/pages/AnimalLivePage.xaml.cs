@@ -14,17 +14,17 @@ using AnimalSimulator.utils;
 
 
 // - Geld einführen => 
-// - Hund: Füttern (50€), Streicheln (25€)
-// - Katze: Füttern (50€), Streicheln (25€)
-// - Maus: Füttern (50€), Streicheln (25€)
+// - Hund: Füttern (50€), Streicheln (25€), Streicheln wenn unter Love unter 100% = -25€
+// - Katze: Füttern (50€), Streicheln (25€), Streicheln wenn unter Love unter 100% = -25€
+// - Maus: Füttern (50€), Streicheln (25€), Streicheln wenn unter Love unter 100% = -25€
 
-// - Goldfisch: Füttern (100€), Streicheln (75€)
-// - Adler: Füttern (200€), Streicheln (120€)
-// - Hai: Füttern (350€), Streicheln (180€)
-// - Tintenfisch: Füttern (450€), Streicheln (250€)
+// - Goldfisch: Füttern (100€), Streicheln (75€), Streicheln wenn unter Love unter 100% = -75€
+// - Adler: Füttern (200€), Streicheln (120€), Streicheln wenn unter Love unter 100% = -120€
+// - Hai: Füttern (350€), Streicheln (180€), Streicheln wenn unter Love unter 100% = -180€
+// - Tintenfisch: Füttern (450€), Streicheln (250€), Streicheln wenn unter Love unter 100% = -250€
 
 // - Essensshop, wo man spezial essen kaufen kann, z.B. Tier wiederbeleben oder Leben hinzuzufügen =>
-// - Normales Futter  - 10€
+// - Normales Futter  - 25€
 // - Biggi (Gibt wieder Leben) - 150€
 // - OP Goldapfel (Wiederbelebung) - 500€
 
@@ -49,14 +49,17 @@ namespace AnimalSimulator.pages
 
         DispatcherTimer timer = new DispatcherTimer();
         Animal animal;
-        Random random = new Random();
+
+        User user = GameManager.user;
 
         public AnimalLivePage(int id)
         {
             InitializeComponent();
             animal = GameManager.animalContainer[id];
             Image.Source = animal.getAnimalPic();
+
             loadAnimalData();
+            updateCashLabel();
 
 
             if (!animal.dead)
@@ -79,6 +82,10 @@ namespace AnimalSimulator.pages
             {
                 if (animal.foodLevel <= 100)
                 {
+                    ///
+                    user.cash += animal.feedCash;
+                    updateCashLabel();
+
                     if (animal.foodLevel > 95)
                     {
                         double fill = 100 - animal.foodLevel;
@@ -130,6 +137,10 @@ namespace AnimalSimulator.pages
 
                     animal.healthLevel -= 1.5;
                 }
+                else
+                {
+                    animal.healthLevel = 0;
+                }
             }
 
             if (animal.foodLevel <= 60)
@@ -137,6 +148,11 @@ namespace AnimalSimulator.pages
                 if (animal.loveLevel >= 1.5)
                 {
                     animal.loveLevel -= 1.5;
+
+                }
+                else
+                {
+                    animal.loveLevel = 0;
                 }
             }
 
@@ -149,14 +165,33 @@ namespace AnimalSimulator.pages
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(animal.loveLevel <= 95)
+            if (!animal.dead)
             {
-                animal.loveLevel += 5;
-            }else
-            {
-                double diff = 100 - animal.loveLevel;
-                animal.loveLevel += diff;
+                ///
+                if(animal.foodLevel >= 100)
+                {
+                    user.cash += animal.strokeCash;
+                    updateCashLabel();
+                }else
+                {
+                    user.cash -= animal.strokeCash;
+                    updateCashLabel();
+                }
+
+                if (animal.loveLevel <= 95)
+                {
+                    animal.loveLevel += 5;
+                }
+                else
+                {
+                    animal.loveLevel = 100;
+                }
             }
+        }
+
+        private void updateCashLabel()
+        {
+            label_cash.Content = "Geld: " + user.cash;
         }
     }
 }

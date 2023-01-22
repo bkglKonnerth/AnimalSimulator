@@ -15,9 +15,11 @@ namespace AnimalSimulator.pages
     /// </summary>
     public partial class BarnShopPage : Page
     {
+        User user = GameManager.user;
         public BarnShopPage()
         {
             InitializeComponent();
+            updateCashLabel();
         }
 
         Barn barn;
@@ -25,71 +27,68 @@ namespace AnimalSimulator.pages
         private void button_buy_barn1_Click(object sender, RoutedEventArgs e)
         {
             barn = new BasketBarn();
-            if (!isToMuchBarnsEmpty())
-            {
-                saveBarn(barn);
-            }
-            else
-            {
-                openNotSuccessfullMessageBox();
-            }
+            contorlBarnbuy(barn);
         }
 
         private void button_buy_barn2_Click(object sender, RoutedEventArgs e)
         {
             barn = new CageBarn();
-            if (!isToMuchBarnsEmpty())
-            {
-                saveBarn(barn);
-            }
-            else
-            {
-                openNotSuccessfullMessageBox();
-            }
+            contorlBarnbuy(barn);
         }
 
         private void button_buy_barn3_Click(object sender, RoutedEventArgs e)
         {
             barn = new NestBarn();
-            if (!isToMuchBarnsEmpty())
-            {
-                saveBarn(barn);
-            }
-            else
-            {
-                openNotSuccessfullMessageBox();
-            }
+            contorlBarnbuy(barn);
         }
 
         private void button_buy_barn4_Click(object sender, RoutedEventArgs e)
         {
-                barn = new WaterBarn();
+            barn = new WaterBarn();
+            contorlBarnbuy(barn);
+        }
+
+        private void contorlBarnbuy(Barn barn)
+        {
             if (!isToMuchBarnsEmpty())
             {
-                saveBarn(barn);
+                if (hasEnoghCash(100))
+                {
+                    user.cash -= 100;
+                    saveBarn(barn);
+                }
+                else
+                {
+                    openNotSuccessfullMessageBox("DU hast nicht genug Geld!");
+                }
             }
             else
             {
-                openNotSuccessfullMessageBox();
+                openNotSuccessfullMessageBox("Du hast bereits ein leeres Gehege!\nKaufe dir zuerst ein Tier dafür!");
             }
         }
 
-        private Boolean isToMuchBarnsEmpty()
+        private Boolean hasEnoghCash(int amount)
         {
+            return (user.cash >= amount);
+        }
+
+        private Boolean isToMuchBarnsEmpty()
+        { 
             int difference = GameManager.barnContainer.Count - GameManager.animalContainer.Count;
-            if (difference == 1 || difference == -1)
-            {
-                return true;
-            }else
-            {
-                return false;
-            }
+            return difference == 1 || difference == -1;
+        }
+
+        private void updateCashLabel()
+        {
+            lable_cash.Content = "Geld: " + user.cash;
         }
 
         private void saveBarn(Barn barn)
         {
             GameManager.barnContainer.Add(barn);
             saveBarnToDatabase(barn);
+            updateCashLabel();
             openSuccessfullMessageBox();
         }
 
@@ -110,9 +109,9 @@ namespace AnimalSimulator.pages
             MessageBox.Show("Dieses Gehege wurde erfolgreich gekauft :)\nDu hast jetzt " + GameManager.barnContainer.Count + " Gehege", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
-        private void openNotSuccessfullMessageBox()
+        private void openNotSuccessfullMessageBox(String message)
         {
-            MessageBox.Show("Du hast bereits ein leeres Gehege!\nKaufe dir zuerst ein Tier dafür!", "Nein!", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(message, "Nein!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void button_back_Click(object sender, RoutedEventArgs e)

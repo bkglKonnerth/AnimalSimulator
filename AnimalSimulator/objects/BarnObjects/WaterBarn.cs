@@ -18,7 +18,7 @@ namespace AnimalSimulator.objects.BarnObjects
 
         public override BitmapImage getBarnPic()
         {
-            return new BitmapImage(new Uri("pack://application:,,,/pics/Aquarium.png"));
+            return new BitmapImage(new Uri("pack://application:,,,/pics/Aquarium.jpg"));
         }
     }
 }

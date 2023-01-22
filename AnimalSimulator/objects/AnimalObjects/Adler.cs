@@ -16,6 +16,8 @@ namespace AnimalSimulator.objects.AnimalObjects
         {
             type = AnimalType.Adler;
         }
+
+
         public override BitmapImage getAnimalPic()
         {
             return new BitmapImage(new Uri("pack://application:,,,/pics/adler.png"));

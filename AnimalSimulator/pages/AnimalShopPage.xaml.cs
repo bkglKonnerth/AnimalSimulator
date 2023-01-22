@@ -27,87 +27,127 @@ namespace AnimalSimulator.pages
     public partial class AnimalShopPage : Page
     {
         Animal animal;
+        User user = GameManager.user;
 
         public AnimalShopPage()
         {
             InitializeComponent();
+            updateCashLabel();
         }
 
         private void button_buy_animal1_Click(object sender, RoutedEventArgs e)
         {
-                animal = new Hund();
+            animal = new Hund();
+            animal.feedCash = 50;
+            animal.strokeCash = 25;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 800);
+            }
+            else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private void button_buy_animal2_Click(object sender, RoutedEventArgs e)
         {
-                animal = new Katze();
+            animal = new Katze();
+            animal.feedCash = 50;
+            animal.strokeCash = 25;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 800);
+            }
+            else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private void button_buy_animal3_Click(object sender, RoutedEventArgs e)
         {
-                animal = new Maus();
+            animal = new Maus();
+            animal.feedCash = 50;
+            animal.strokeCash = 25;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 800);
+            }
+            else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private void button_buy_animal4_Click(object sender, RoutedEventArgs e)
         {
-                animal = new Goldfisch();
+            animal = new Goldfisch();
+            animal.feedCash = 100;
+            animal.strokeCash = 50;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 20000);
+            }
+            else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private void button_buy_animal5_Click(object sender, RoutedEventArgs e)
         {
-                animal = new Adler();
+            animal = new Adler();
+            animal.feedCash = 200;
+            animal.strokeCash = 100;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 60000);
+            }
+            else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private void button_buy_animal6_Click(object sender, RoutedEventArgs e)
         {
-                animal = new Hai();
+            animal = new Hai();
+            animal.feedCash = 400;
+            animal.strokeCash = 200;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 90000);
+            }
+            else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private void button_buy_animal7_Click(object sender, RoutedEventArgs e)
         {
             animal = new Tintenfisch();
+            animal.feedCash = 800;
+            animal.strokeCash = 400;
 
             if (gehegeExists(animal))
             {
-                saveAnimal(animal);
+                saveAnimal(animal, 140000);
+            }else
+            {
+                openNotSuccessfullMessageBox("Du musst zu erst ein Gehege mit dem richtigen Typen kaufen!");
             }
         }
 
         private Boolean gehegeExists(Animal animal)
         {
-            //If gehege existiert 
-            //If gehege type = richtig
-            //
 
             if(GameManager.barnContainer.Count == 0)
             {
@@ -140,25 +180,40 @@ namespace AnimalSimulator.pages
                     case "WaterTintenfisch":
                         return true;
                     default:
-                        MessageBox.Show("Du musst vorher noch ein Gehege mit dem richtigen typen kaufen!", "Nein!", MessageBoxButton.OK, MessageBoxImage.Information);
                         return false;
                 }
             }
             else
             {
-                MessageBox.Show("Du musst vorher noch ein Gehege mit dem richtigen typen kaufen!", "Nein!", MessageBoxButton.OK, MessageBoxImage.Information);
                 return false;
             }
 
         }
 
-        private void saveAnimal(Animal animal)
+        private void saveAnimal(Animal animal, int cost)
         {
-            saveAnimalToDatabase(animal);
-            GameManager.animalContainer.Add(animal);
-            openSuccesfullMessageBox();
-        }
+            if (hasEnoghCash(cost))
+            {
+                user.cash -= cost;
+                updateCashLabel();
+                saveAnimalToDatabase(animal);
+                GameManager.animalContainer.Add(animal);
+                openSuccesfullMessageBox();
 
+
+            }else
+            {
+                openNotSuccessfullMessageBox("Du hast nicht genug geld!");
+            }
+        }
+        private Boolean hasEnoghCash(int amount)
+        {
+            return (user.cash >= amount);
+        }
+        private void updateCashLabel()
+        {
+            lable_cash.Content = "Geld: " + user.cash;
+        }
         private void saveAnimalToDatabase(Animal animal)
         {
             MySQL.mySqlCon.Open();
@@ -174,6 +229,12 @@ namespace AnimalSimulator.pages
         {
             MessageBox.Show("Das Tier wurde erfolgreich gekauft!", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void openNotSuccessfullMessageBox(String message)
+        {
+            MessageBox.Show(message, "Nein!", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
 
         private void button_back_Click(object sender, RoutedEventArgs e)
         {

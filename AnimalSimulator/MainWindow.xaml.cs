@@ -49,6 +49,12 @@ namespace AnimalSimulator
             {
                 if (!animals[i].dead)
                 {
+                    if(animals[i].foodLevel <= 0)
+                    {
+                        animals[i].straving = false;
+                        animals[i].foodLevel = 0;
+                    }
+
                     if (animals[i].straving)
                     {
                         starve(animals[i]);
@@ -133,6 +139,10 @@ namespace AnimalSimulator
                     command = MySQL.buildMySqlCommand("INSERT INTO barns SET barntype='" + barn.type + "',ownerID =" + user.userID + ";");
                     command.ExecuteNonQuery();
                 }
+
+                command = MySQL.buildMySqlCommand("UPDATE user SET cash='" + GameManager.user.cash + "'WHERE userID="+ GameManager.user.userID + ";");
+                command.ExecuteNonQuery();
+
                 MySQL.mySqlCon.Close();
             }
         }
@@ -223,26 +233,27 @@ namespace AnimalSimulator
                         case "Basket":
                             barn = new BasketBarn();
                             barn.type = BarnType.Basket;
+                            GameManager.barnContainer.Add(barn);
+
                             break;
                         case "Cage":
                             barn = new CageBarn();
                             barn.type = BarnType.Cage;
+                            GameManager.barnContainer.Add(barn);
+
                             break;
                         case "Nest":
                             barn = new NestBarn();
                             barn.type = BarnType.Nest;
+                            GameManager.barnContainer.Add(barn);
+
                             break;
                         case "Water":
                             barn = new WaterBarn();
                             barn.type = BarnType.Water;
-                            break;
-                        default:
-                            barn = new Barn();
+                            GameManager.barnContainer.Add(barn);
                             break;
                     }
-
-                    GameManager.barnContainer.Add(barn);
-
                 }
             }
         }

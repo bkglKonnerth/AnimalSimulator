@@ -19,6 +19,11 @@
         <Image Margin="288,145,523,212" Source="../pics/Käfig.jpg" Stretch="Fill"/>
         <Image Margin="777,125,23,225" Source="../pics/Aquarium.jpg" Stretch="Fill"/>
         <Image Margin="528,145,283,212" Source="../pics/Nest.png" Stretch="Fill"/>
+        <Label Name="lable_cash" Content="Geld: ????€" FontSize="16" HorizontalAlignment="Left" Margin="879,11,0,0" VerticalAlignment="Top" Height="36" Width="111"/>
+        <Label Content="Kosten: 100€" HorizontalAlignment="Left" Margin="89,379,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Kosten: 100€" HorizontalAlignment="Left" Margin="578,379,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Kosten: 100€" HorizontalAlignment="Left" Margin="346,379,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label Content="Kosten: 100€" HorizontalAlignment="Left" Margin="845,379,0,0" VerticalAlignment="Top" Width="79"/>
 
     </Grid>
 </Page>

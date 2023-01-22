@@ -22,6 +22,10 @@ namespace AnimalSimulator.objects
         public Boolean straving { get; set; } = false;
         public int nextFoodTime { get; set; } = 0;
 
+        public int strokeCash { get; set; } = 25;
+        public int feedCash { get; set; } = 100;
+
+
         public virtual BitmapImage getAnimalPic()
         {
             return null;

@@ -10,22 +10,30 @@
       Title="AnimalShopPage">
 
     <Grid>
-        <Image Margin="151,19,701,383" Source="../pics/hundIcon.png" Stretch="Fill"/>
-        <Image Margin="347,19,505,383" Source="../pics/katzeIcon.png" Stretch="Fill"/>
-        <Image Margin="539,19,313,383" Source="../pics/mausIcon.png" Stretch="Fill"/>
-        <Image Margin="227,287,625,115" Source="../pics/adlerIcon.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
-        <Image Margin="735,19,117,383" Source="../pics/goldfischIcon.png" Stretch="Fill"/>
-        <Image Margin="425,295,428,107" Source="../pics/haiIcon.png" Stretch="Fill"/>
-        <Image Margin="616,290,236,112" Source="../pics/tintenfischIcon.png" Stretch="Fill"/>
+        <Image Margin="223,20,629,396" Source="../pics/hundIcon.png" Stretch="Fill"/>
+        <Image Margin="419,20,433,396" Source="../pics/katzeIcon.png" Stretch="Fill"/>
+        <Image Margin="611,20,241,382" Source="../pics/mausIcon.png" Stretch="Fill"/>
+        <Image Margin="325,305,537,119" Source="../pics/adlerIcon.png" Stretch="Fill" RenderTransformOrigin="0.5,0.5"/>
+        <Image Margin="125,283,727,119" Source="../pics/goldfischIcon.png" Stretch="Fill"/>
+        <Image Margin="523,291,330,111" Source="../pics/haiIcon.png" Stretch="Fill"/>
+        <Image Margin="725,305,138,119" Source="../pics/tintenfischIcon.png" Stretch="Fill"/>
 
-        <Button Name="button_buy_animal6" Content="Kaufen" HorizontalAlignment="Left" Margin="452,489,0,0" VerticalAlignment="Top" Width="93" Height="26" Click="button_buy_animal6_Click"/>
-        <Button Name="button_buy_animal7" Content="Kaufen" HorizontalAlignment="Left" Margin="643,489,0,0" VerticalAlignment="Top" Width="93" Height="26" Click="button_buy_animal7_Click"/>
-        <Button Name="button_buy_animal5" Content="Kaufen" HorizontalAlignment="Left" Margin="258,489,0,0" VerticalAlignment="Top" Width="94" Height="26" Click="button_buy_animal5_Click"/>
-        <Button Name="button_buy_animal1" Content="Kaufen" HorizontalAlignment="Left" Margin="170,224,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal1_Click"/>
-        <Button Name="button_buy_animal2" Content="Kaufen" HorizontalAlignment="Left" Margin="359,224,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal2_Click"/>
-        <Button Name="button_buy_animal3" Content="Kaufen" HorizontalAlignment="Left" Margin="560,224,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal3_Click"/>
-        <Button Name="button_buy_animal4" Content="Kaufen" HorizontalAlignment="Left" Margin="765,224,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal4_Click"/>
+        <Button Name="button_buy_animal6" Content="Kaufen" HorizontalAlignment="Left" Margin="550,506,0,0" VerticalAlignment="Top" Width="93" Height="26" Click="button_buy_animal6_Click"/>
+        <Button Name="button_buy_animal7" Content="Kaufen" HorizontalAlignment="Left" Margin="741,506,0,0" VerticalAlignment="Top" Width="93" Height="26" Click="button_buy_animal7_Click"/>
+        <Button Name="button_buy_animal5" Content="Kaufen" HorizontalAlignment="Left" Margin="342,506,0,0" VerticalAlignment="Top" Width="94" Height="26" Click="button_buy_animal5_Click"/>
+        <Button Name="button_buy_animal1" Content="Kaufen" HorizontalAlignment="Left" Margin="255,239,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal1_Click"/>
+        <Button Name="button_buy_animal2" Content="Kaufen" HorizontalAlignment="Left" Margin="444,239,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal2_Click"/>
+        <Button Name="button_buy_animal3" Content="Kaufen" HorizontalAlignment="Left" Margin="631,239,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal3_Click"/>
+        <Button Name="button_buy_animal4" Content="Kaufen" HorizontalAlignment="Left" Margin="155,509,0,0" VerticalAlignment="Top" Width="93" Height="23" Click="button_buy_animal4_Click"/>
         <Button Name="button_back" Content="Zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="67" Height="27" Click="button_back_Click"/>
+        <Label Name="lable_cash" Content="Geld: ???? €" FontWeight="Bold" FontSize="16" HorizontalAlignment="Left" Margin="883,7,0,0" VerticalAlignment="Top" Height="30" Width="111"/>
+        <Label Content="Kosten: 800€" FontWeight="Bold" HorizontalAlignment="Left" Margin="255,196,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Kosten: 800€" FontWeight="Bold" HorizontalAlignment="Left" Margin="631,196,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Kosten: 800€" FontWeight="Bold" HorizontalAlignment="Left" Margin="444,196,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Kosten: 20.000€" FontWeight="Bold" HorizontalAlignment="Left" Margin="155,474,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Kosten: 60.000€" FontWeight="Bold" HorizontalAlignment="Left" Margin="342,474,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Content="Kosten: 90.000€" FontWeight="Bold" HorizontalAlignment="Left" Margin="550,474,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Kosten: 140.000€" FontWeight="Bold" HorizontalAlignment="Left" Margin="741,474,0,0" VerticalAlignment="Top" Width="111"/>
 
 
     </Grid>
