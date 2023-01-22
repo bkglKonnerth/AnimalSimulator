@@ -26,57 +26,95 @@ namespace AnimalSimulator
         DispatcherTimer timer = new DispatcherTimer();
         Random random = new Random();
         int timerCounter = 0;
+
+        Boolean gameOver = false;
         public MainWindow()
         {
             InitializeComponent();
-            ContentFrame.Content = new pages.MainMenuPage();
+
+            if (!gameOver)
+            {
+                timer.Interval = TimeSpan.FromMilliseconds(1000);
+                timer.Tick += timerTick;
+                timer.Start();
+
+                ContentFrame.Content = new pages.MainMenuPage();
+            }else
+            {
+                ContentFrame.Content = new pages.GameOverPage();
+            }
 
             loadAnimalsFromDB();
             loadBarnsFromDB();
-
-            timer.Interval = TimeSpan.FromMilliseconds(1000);
-            timer.Tick += timerTick;
-            timer.Start();
         }
 
         private void timerTick(object sender, EventArgs e)
         {
             timerCounter++;
-            saveDatasAfterSeconds();
 
+           if(!gameOver) {
+                saveDatasAfterSeconds();
+                checkGameOver();
 
-            for (int i = 0; i < animals.Count; i++)
-            {
-                if (!animals[i].dead)
+                for (int i = 0; i < animals.Count; i++)
                 {
-                    if(animals[i].foodLevel <= 0)
+                    if (!animals[i].dead)
                     {
-                        animals[i].straving = false;
-                        animals[i].foodLevel = 0;
-                    }
+                        if (animals[i].foodLevel <= 0)
+                        {
+                            animals[i].straving = false;
+                            animals[i].foodLevel = 0;
+                        }
 
-                    if (animals[i].straving)
-                    {
-                        starve(animals[i]);
-                    }
-                    else if (animals[i].nextFoodTime <= 0)
-                    {
-                        animals[i].straving = true;
-                        animals[i].straveTimes = random.Next(10, 240);
+                        if (animals[i].straving)
+                        {
+                            starve(animals[i]);
+                        }
+                        else if (animals[i].nextFoodTime <= 0)
+                        {
+                            animals[i].straving = true;
+                            animals[i].straveTimes = random.Next(10, 240);
 
 
-                        int calcFoodTime = random.Next(40000, 70000);
-                        animals[i].nextFoodTime = calcFoodTime;
+                            int calcFoodTime = random.Next(40000, 70000);
+                            animals[i].nextFoodTime = calcFoodTime;
 
-                        starve(animals[i]);
-                    }
-                    else
-                    {
-                        reduceFoodTime();
+                            starve(animals[i]);
+                        }
+                        else
+                        {
+                            reduceFoodTime();
+                        }
                     }
                 }
             }
         }
+
+        private void checkGameOver()
+        {
+            Boolean allAnimalsDead = false;
+            Boolean noCash = false;
+
+            foreach(Animal all in GameManager.animalContainer)
+            {
+                if (all.dead)
+                {
+                    allAnimalsDead = true;
+                }
+            }
+
+            if(GameManager.user.cash <= 799)
+            {
+                noCash = true;
+            }
+
+            if(allAnimalsDead && noCash)
+            {
+                ContentFrame.Content = new pages.GameOverPage(); 
+            }
+
+        }
+
 
         private void starve(Animal animal)
         {       

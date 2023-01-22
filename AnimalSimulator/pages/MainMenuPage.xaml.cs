@@ -25,6 +25,15 @@ namespace AnimalSimulator.pages
 
         private void Button_logout_Click(object sender, RoutedEventArgs e)
         {
+            logOut();
+
+            Thread.Sleep(4000);
+
+            Application.Current.Shutdown();
+        }
+
+        public static void logOut()
+        {
             MySQL.mySqlCon.Open();
 
             MySqlCommand sqlcommand = MySQL.buildMySqlCommand("DELETE FROM sessions WHERE hwid='" + GameManager.user.hwid + "';");
@@ -33,10 +42,6 @@ namespace AnimalSimulator.pages
             MessageBox.Show("Erfolgreich ausgeloggt! Programm schließt in 4 Sekunden!", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             MySQL.mySqlCon.Close();
-
-            Thread.Sleep(4000);
-
-            Application.Current.Shutdown();
         }
 
         private void Button_Shops_Click(object sender, RoutedEventArgs e)

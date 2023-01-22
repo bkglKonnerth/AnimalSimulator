@@ -15,6 +15,8 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Hai()
         {
             type = AnimalType.Hai;
+            strokeCash = 60;
+            feedCash = 100;
         }
         public override BitmapImage getAnimalPic()
         {

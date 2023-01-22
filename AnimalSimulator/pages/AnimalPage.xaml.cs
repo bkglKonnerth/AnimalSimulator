@@ -19,6 +19,7 @@ namespace AnimalSimulator.pages
     public partial class AnimalPage : Page
     {
         DispatcherTimer timer = new DispatcherTimer();
+        int emptyPlace;
         public AnimalPage()
         {
             InitializeComponent();
@@ -43,20 +44,34 @@ namespace AnimalSimulator.pages
 
         private void button_visit_animal1_Click(object sender, RoutedEventArgs e)
         {
-            if(GameManager.animalContainer.Count > (GameManager.page * 4) - 4)
+            int calc = (GameManager.page * 4);
+
+            if (GameManager.animalContainer.Count > calc - 4)
             {
-                NavigationService.Navigate(new AnimalLivePage((GameManager.page * 4) - 4));
-            }else
+                NavigationService.Navigate(new AnimalLivePage(calc - 4));
+            }
+            else if (emptyPlace == calc - 4)
+            {
+                MessageBoxResult result = MessageBox.Show("Möchtest du das Gehge wirklich verkaufen?", "Sicher?", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                checkBarnDeleteAnswer(result);
+            }
+            else
             {
                 MessageBox.Show("Nein!", "Kein Tier wohnt hier!");
             }
         }
         private void button_visit_animal2_Click(object sender, RoutedEventArgs e)
         {
+            int calc = (GameManager.page * 4);
 
-            if (GameManager.animalContainer.Count >= (GameManager.page * 4) - 2)
+            if (GameManager.animalContainer.Count >= calc - 2)
             {
-                NavigationService.Navigate(new AnimalLivePage((GameManager.page * 4) - 3));
+                NavigationService.Navigate(new AnimalLivePage(calc - 3));
+            }
+            else if (emptyPlace == calc - 2)
+            {
+                MessageBoxResult result = MessageBox.Show("Möchtest du das Gehge wirklich verkaufen?", "Sicher?", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                checkBarnDeleteAnswer(result);
             }
             else
             {
@@ -66,9 +81,16 @@ namespace AnimalSimulator.pages
 
         private void button_visit_animal3_Click(object sender, RoutedEventArgs e)
         {
-            if (GameManager.animalContainer.Count >= (GameManager.page * 4) - 1)
+            int calc = (GameManager.page * 4);
+
+            if (GameManager.animalContainer.Count >= calc - 1)
             {
-                NavigationService.Navigate(new AnimalLivePage((GameManager.page * 4) - 2));
+                NavigationService.Navigate(new AnimalLivePage(calc - 2));
+            }
+            else if (emptyPlace == calc - 1)
+            {
+                MessageBoxResult result = MessageBox.Show("Möchtest du das Gehge wirklich verkaufen?", "Sicher?", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                checkBarnDeleteAnswer(result);
             }
             else
             {
@@ -78,14 +100,30 @@ namespace AnimalSimulator.pages
 
         private void button_visit_animal4_Click(object sender, RoutedEventArgs e)
         {
-            // 6 >= 7
-            if (GameManager.animalContainer.Count >= (GameManager.page * 4) - 0)
+            int calc = (GameManager.page * 4);
+
+            if (GameManager.animalContainer.Count >= calc)
             {
-                NavigationService.Navigate(new AnimalLivePage((GameManager.page * 4) - 1));
+                NavigationService.Navigate(new AnimalLivePage(calc - 1));
+            }else if (emptyPlace == calc)
+            {
+                MessageBoxResult result = MessageBox.Show("Möchtest du das Gehge wirklich verkaufen?", "Sicher?", MessageBoxButton.YesNo, MessageBoxImage.Asterisk);
+                checkBarnDeleteAnswer(result);
             }
             else
             {
                 MessageBox.Show("Nein!", "Kein Tier wohnt hier!");
+            }
+        }
+
+        private void checkBarnDeleteAnswer(MessageBoxResult result)
+        {
+            if(result == MessageBoxResult.Yes)
+            {
+                GameManager.barnContainer.RemoveAt(GameManager.barnContainer.Count - 1);
+                GameManager.user.cash += 100;
+
+                NavigationService.Navigate(new AnimalPage());
             }
         }
 
@@ -109,15 +147,19 @@ namespace AnimalSimulator.pages
                 {
                     case 0:
                         image_animal1.Source = animalPic;
+                        emptyPlace = count + 1;
                         break;
                     case 1:
                         image_animal2.Source = animalPic;
+                        emptyPlace = count + 1;
                         break;
                     case 2:
                         image_animal3.Source = animalPic;
+                        emptyPlace = count + 1;
                         break;
                     case 3:
                         image_animal4.Source = animalPic;
+                        emptyPlace = count + 1;
                         break;
                 }
 
@@ -230,7 +272,7 @@ namespace AnimalSimulator.pages
                 }
                 else
                 {
-                    animal.healthLevel = 0;
+                    animal.loveLevel = 0;
                 }
             }
 

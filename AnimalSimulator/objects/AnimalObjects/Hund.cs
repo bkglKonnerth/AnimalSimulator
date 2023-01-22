@@ -14,6 +14,8 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Hund()
         {
             type = AnimalType.Hund;
+            strokeCash = 25;
+            feedCash = 15;
         }
         public override BitmapImage getAnimalPic()
         {

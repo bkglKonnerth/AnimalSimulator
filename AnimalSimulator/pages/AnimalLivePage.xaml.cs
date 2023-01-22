@@ -61,13 +61,13 @@ namespace AnimalSimulator.pages
             loadAnimalData();
             updateCashLabel();
 
+            combobox_food.Items.Add("Normales Futter | Kosten: 10€");
+            combobox_food.Items.Add("Biggi | Kosten: 400€");
+            combobox_food.Items.Add("OP Goldapfel | Kosten: 1000€");
 
-            if (!animal.dead)
-            {
-                timer.Interval = TimeSpan.FromMilliseconds(500);
-                timer.Tick += loadAnimalData;
-                timer.Start();
-            }
+            timer.Interval = TimeSpan.FromMilliseconds(500);
+            timer.Tick += loadAnimalData;
+            timer.Start();
 
         }
 
@@ -78,26 +78,73 @@ namespace AnimalSimulator.pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            User initUser = GameManager.user;
+
             if (!animal.dead)
             {
                 if (animal.foodLevel <= 100)
                 {
-                    ///
-                    user.cash += animal.feedCash;
-                    updateCashLabel();
-
-                    if (animal.foodLevel > 95)
+                    switch (combobox_food.Text)
                     {
-                        double fill = 100 - animal.foodLevel;
-                        animal.foodLevel += fill;
-                    }
-                    else
-                    {
-                        animal.foodLevel += 5;
-                    }
+                        case "Normales Futter | Kosten: 10€":
+                            if (hasEnoghCash(10))
+                            {
+                                if (animal.foodLevel > 95)
+                                {
+                                    double fill = 100 - animal.foodLevel;
+                                    animal.foodLevel += fill;
 
+                                    user.cash += animal.feedCash;
+                                    updateCashLabel();
+                                }
+                                else
+                                {
+                                    animal.foodLevel += 5;
+                                }
+
+                                initUser.cash -= 10;
+                            }
+                            else
+                            {
+                                sendNoCashBox();
+                            }
+
+                            break;
+
+                        case "Biggi | Kosten: 400€":
+                            if (hasEnoghCash(400))
+                            {
+                                animal.foodLevel += 50;
+                                initUser.cash -= 400;
+
+                                user.cash += animal.feedCash;
+                                updateCashLabel();
+                            }
+                            else
+                            {
+                                sendNoCashBox();
+                            }
+
+                            break;
+
+                        case "OP Goldapfel | Kosten: 1000€":
+                            if (hasEnoghCash(1000))
+                            { 
+                                animal.foodLevel = 100;
+                                animal.healthLevel = 100;
+                                animal.loveLevel = 0;
+                                initUser.cash -= 1000;
+
+                                user.cash += animal.feedCash;
+                                updateCashLabel();
+                            }
+                            else
+                            {
+                                sendNoCashBox();
+                            }
+                            break;
+                    }
                 }
-
                 if (animal.foodLevel == 100)
                 {
                     animal.straveTimes = 0;
@@ -105,7 +152,26 @@ namespace AnimalSimulator.pages
                 }
             }else
             {
-                MessageBox.Show("Dein Tier ist Tot!", "Nein!", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                if(combobox_food.Text == "OP Goldapfel | Kosten: 1000€")
+                {
+                    if (hasEnoghCash(1000))
+                    {
+                        animal.foodLevel = 100;
+                        animal.healthLevel = 100;
+                        animal.dead = false;
+
+                        animal.loveLevel = 0;
+                        initUser.cash -= 1000;
+                    }
+                    else
+                    {
+                        sendNoCashBox();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Dein Tier ist Tot!", "Nein!", MessageBoxButton.OKCancel, MessageBoxImage.Error);
+                }
             }
 
         }
@@ -165,17 +231,24 @@ namespace AnimalSimulator.pages
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
+            User initUser = GameManager.user;
+
             if (!animal.dead)
-            {
-                ///
-                if(animal.foodLevel >= 100)
+            { 
+                if (animal.foodLevel <= 100)
                 {
-                    user.cash += animal.strokeCash;
-                    updateCashLabel();
-                }else
-                {
-                    user.cash -= animal.strokeCash;
-                    updateCashLabel();
+                    if (animal.loveLevel == 100)
+                    {
+                        initUser.cash += animal.strokeCash;
+                        updateCashLabel();
+                    }
+
+                    if (animal.loveLevel <= 100)
+                    {
+                        initUser.cash -= animal.strokeCash;
+                        updateCashLabel();
+                    }
                 }
 
                 if (animal.loveLevel <= 95)
@@ -188,10 +261,19 @@ namespace AnimalSimulator.pages
                 }
             }
         }
-
         private void updateCashLabel()
         {
             label_cash.Content = "Geld: " + user.cash;
+        }
+
+        private void sendNoCashBox()
+        {
+            MessageBox.Show("Du hast nicht genug Geld!", "Nö!", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private Boolean hasEnoghCash(int cash)
+        {
+            return user.cash >= cash;
         }
     }
 }

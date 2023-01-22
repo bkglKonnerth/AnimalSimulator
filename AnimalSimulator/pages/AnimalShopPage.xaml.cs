@@ -38,8 +38,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal1_Click(object sender, RoutedEventArgs e)
         {
             animal = new Hund();
-            animal.feedCash = 50;
-            animal.strokeCash = 25;
 
             if (gehegeExists(animal))
             {
@@ -54,8 +52,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal2_Click(object sender, RoutedEventArgs e)
         {
             animal = new Katze();
-            animal.feedCash = 50;
-            animal.strokeCash = 25;
 
             if (gehegeExists(animal))
             {
@@ -70,8 +66,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal3_Click(object sender, RoutedEventArgs e)
         {
             animal = new Maus();
-            animal.feedCash = 50;
-            animal.strokeCash = 25;
 
             if (gehegeExists(animal))
             {
@@ -86,8 +80,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal4_Click(object sender, RoutedEventArgs e)
         {
             animal = new Goldfisch();
-            animal.feedCash = 100;
-            animal.strokeCash = 50;
 
             if (gehegeExists(animal))
             {
@@ -102,8 +94,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal5_Click(object sender, RoutedEventArgs e)
         {
             animal = new Adler();
-            animal.feedCash = 200;
-            animal.strokeCash = 100;
 
             if (gehegeExists(animal))
             {
@@ -118,8 +108,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal6_Click(object sender, RoutedEventArgs e)
         {
             animal = new Hai();
-            animal.feedCash = 400;
-            animal.strokeCash = 200;
 
             if (gehegeExists(animal))
             {
@@ -134,8 +122,6 @@ namespace AnimalSimulator.pages
         private void button_buy_animal7_Click(object sender, RoutedEventArgs e)
         {
             animal = new Tintenfisch();
-            animal.feedCash = 800;
-            animal.strokeCash = 400;
 
             if (gehegeExists(animal))
             {
@@ -194,7 +180,7 @@ namespace AnimalSimulator.pages
         {
             if (hasEnoghCash(cost))
             {
-                user.cash -= cost;
+                user.cash += cost;
                 updateCashLabel();
                 saveAnimalToDatabase(animal);
                 GameManager.animalContainer.Add(animal);

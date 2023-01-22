@@ -14,6 +14,8 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Goldfisch()
         {
             type = AnimalType.Goldfisch;
+            strokeCash = 50;
+            feedCash = 30;
         }
         public override BitmapImage getAnimalPic()
         {

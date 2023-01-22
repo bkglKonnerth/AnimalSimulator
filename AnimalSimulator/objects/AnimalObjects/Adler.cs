@@ -15,7 +15,9 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Adler()
         {
             type = AnimalType.Adler;
-        }
+            feedCash = 120;
+            strokeCash = 200;
+        }   
 
 
         public override BitmapImage getAnimalPic()

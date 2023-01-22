@@ -13,6 +13,8 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Maus()
         {
             type = AnimalType.Maus;
+            feedCash = 15;
+            strokeCash = 25;
         }
         public override BitmapImage getAnimalPic()
         {

@@ -11,12 +11,12 @@
 
     <Grid RenderTransformOrigin="0.507,0.533">
         <Border Background="#fc6aafff" BorderBrush="Black" BorderThickness="2" CornerRadius="30" HorizontalAlignment="Left" Height="445" Margin="43,52,0,0" VerticalAlignment="Top" Width="922"/>
-        <Button Name="Button_Animals" Content="Animals" HorizontalAlignment="Left" Margin="387,106,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Animals_Click"/>
-        <Button Name="Button_Shops" Content="Animal Shop" HorizontalAlignment="Left" Margin="393,287,0,0" VerticalAlignment="Top" Width="235" Height="49" Click="Button_Shops_Click"/>
-        <Button Name="Button_Storage" Content="Barn Shop" HorizontalAlignment="Left" Margin="633,287,0,0" VerticalAlignment="Top" Width="235" Height="49" Click="Button_Barn_Click"/>
-        <Button Name="Button_logout" Content="Logout" HorizontalAlignment="Left" Margin="826,425,0,0" VerticalAlignment="Top" Width="100" Height="43" Click="Button_logout_Click"/>
-        <Button Name="Button_Editmenu" Content="Edit" HorizontalAlignment="Left" Margin="387,203,0,0" VerticalAlignment="Top" Width="235" Height="39"/>
-        <Button Name="Button_FoodShop" Content="Food Shop" HorizontalAlignment="Left" Margin="153,287,0,0" VerticalAlignment="Top" Width="235" Height="49" Click="Button_FoodShop_Click" />
+        <Button Name="Button_Animals" Content="Animals" HorizontalAlignment="Left" FontWeight="Bold" Margin="387,106,0,0" VerticalAlignment="Top" Width="235" Height="92" Click="Button_Animals_Click"/>
+        <Button Name="Button_Shops" Content="Animal Shop" HorizontalAlignment="Left" FontWeight="Bold" Margin="393,287,0,0" VerticalAlignment="Top" Width="235" Height="49" Click="Button_Shops_Click"/>
+        <Button Name="Button_Storage" Content="Barn Shop" HorizontalAlignment="Left" FontWeight="Bold" Margin="633,287,0,0" VerticalAlignment="Top" Width="235" Height="49" Click="Button_Barn_Click"/>
+        <Button Name="Button_logout" Content="Logout" HorizontalAlignment="Left" FontWeight="Bold" Margin="826,425,0,0" VerticalAlignment="Top" Width="100" Height="43" Click="Button_logout_Click"/>
+        <Button Name="Button_Editmenu" Content="Edit" HorizontalAlignment="Left" Margin="387,203,0,0" VerticalAlignment="Top" Width="235" Height="39" Click="Button_Editmenu_Click"/>
+        <Button Name="Button_FoodShop" Content="Food Shop" HorizontalAlignment="Left" FontWeight="Bold" Margin="153,287,0,0" VerticalAlignment="Top" Width="235" Height="49" Click="Button_FoodShop_Click" />
 
     </Grid>
 </Page>

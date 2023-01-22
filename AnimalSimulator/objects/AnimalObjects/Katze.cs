@@ -15,6 +15,9 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Katze()
         {
             type = AnimalType.Katze;
+            strokeCash = 25;
+            feedCash = 15;
+
         }
         public override BitmapImage getAnimalPic()
         {

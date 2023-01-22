@@ -14,6 +14,8 @@ namespace AnimalSimulator.objects.AnimalObjects
         public Tintenfisch()
         {
             type = AnimalType.Tintenfisch;
+            feedCash = 240;
+            strokeCash = 400;
         }
         public override BitmapImage getAnimalPic()
         {
