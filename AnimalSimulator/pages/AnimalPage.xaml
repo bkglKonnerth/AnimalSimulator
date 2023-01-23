@@ -59,6 +59,54 @@
         <Button Name="button_page_next" Content="Next" HorizontalAlignment="Left" Margin="554,520,0,0" VerticalAlignment="Top" Width="75" Click="button_page_next_Click"/>
         <Label Name="lable_page" Content="Page: " FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Margin="447,10,0,0" VerticalAlignment="Top" Width="62"/>
         <Button Name="button_page_back" Content="Back" HorizontalAlignment="Left" Margin="410,520,0,0" VerticalAlignment="Top" Width="75" Click="button_page_back_Click"/>
+        <Image Margin="538,288,431,232" Source="/AnimalSimulator;component/pics/foodIcon.jpg" Stretch="Fill"/>
+        <Image Margin="536,375,432,147" Source="/AnimalSimulator;component/pics/herzIcon.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.046"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="538,334,432,186" Source="/AnimalSimulator;component/pics/lebenIcon.png" Stretch="Fill"/>
+        <Image Margin="773,288,196,232" Source="/AnimalSimulator;component/pics/foodIcon.jpg" Stretch="Fill"/>
+        <Image Margin="771,375,197,147" Source="/AnimalSimulator;component/pics/herzIcon.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.046"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="773,334,197,186" Source="/AnimalSimulator;component/pics/lebenIcon.png" Stretch="Fill"/>
+        <Image Margin="296,288,673,232" Source="/AnimalSimulator;component/pics/foodIcon.jpg" Stretch="Fill"/>
+        <Image Margin="294,375,674,147" Source="/AnimalSimulator;component/pics/herzIcon.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.046"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="296,334,674,186" Source="/AnimalSimulator;component/pics/lebenIcon.png" Stretch="Fill"/>
+        <Image Margin="51,288,918,232" Source="/AnimalSimulator;component/pics/foodIcon.jpg" Stretch="Fill"/>
+        <Image Margin="49,375,919,147" Source="/AnimalSimulator;component/pics/herzIcon.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.046"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="51,334,919,186" Source="/AnimalSimulator;component/pics/lebenIcon.png" Stretch="Fill"/>
 
 
     </Grid>

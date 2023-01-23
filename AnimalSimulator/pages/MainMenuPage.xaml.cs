@@ -51,7 +51,7 @@ namespace AnimalSimulator.pages
 
         private void Button_FoodShop_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Soon!");
+            NavigationService.Navigate(new FoodOverviewPage());
         }
 
         private void Button_Barn_Click(object sender, RoutedEventArgs e)

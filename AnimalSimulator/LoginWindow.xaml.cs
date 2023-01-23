@@ -26,8 +26,6 @@ namespace AnimalSimulator
 
             if (isHWIDLoggedIn())
             {
-                MySQL.mySqlCon.Open();
-
                 MySqlDataAdapter mySqlDataAdapter = MySQL.buildMySqlDataAdapter("SELECT * FROM user WHERE userID='" + GameManager.user.userID + "';");
                 DataTable dataTable = new DataTable();
                 mySqlDataAdapter.Fill(dataTable);
@@ -49,7 +47,6 @@ namespace AnimalSimulator
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
             MySQL.mySqlCon.Open();
-
             if(!isHWIDLoggedIn())
             {
                 String username = TextBox_Username.Text;
@@ -71,18 +68,19 @@ namespace AnimalSimulator
                     GameManager.user.hwid = userHWID;
                     GameManager.user.cash = Convert.ToInt32(dataTable.Rows[0].ItemArray[1]);
 
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                    this.Close();
-
                     if ((bool)stayLogedInState)
                     {
                         MySqlCommand sqlcommand = MySQL.buildMySqlCommand("INSERT INTO sessions SET hwid='" + userHWID + "', userID='" + userID + "';");
                         sqlcommand.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Erfolgreich Eingeloggt", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
                     MySQL.mySqlCon.Close();
+
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+
+                    MessageBox.Show("Erfolgreich Eingeloggt", "OK!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {

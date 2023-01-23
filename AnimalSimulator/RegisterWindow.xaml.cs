@@ -45,9 +45,7 @@ namespace AnimalSimulator
 
             if (!registerFailed)
             {
-
                 MySQL.mySqlCon.Open();
-
                 MySqlDataAdapter mySqlDataAdapter = MySQL.buildMySqlDataAdapter("SELECT * FROM user WHERE username='" + username + "';");
                 DataTable dataTable = new DataTable();
 
@@ -55,7 +53,7 @@ namespace AnimalSimulator
 
                 if(dataTable.Rows.Count == 0)
                 {
-                    MySqlCommand command = MySQL.buildMySqlCommand("INSERT INTO user SET cash=800, username ='" + username + "', password='" + password + "';");
+                    MySqlCommand command = MySQL.buildMySqlCommand("INSERT INTO user SET cash=1500, username ='" + username + "', password='" + password + "';");
                     command.ExecuteNonQuery();
 
                     LoginWindow loginWindow = new LoginWindow();

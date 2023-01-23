@@ -180,7 +180,7 @@ namespace AnimalSimulator.pages
         {
             if (hasEnoghCash(cost))
             {
-                user.cash += cost;
+                user.cash -= cost;
                 updateCashLabel();
                 saveAnimalToDatabase(animal);
                 GameManager.animalContainer.Add(animal);

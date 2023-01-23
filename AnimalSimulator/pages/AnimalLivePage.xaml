@@ -10,19 +10,35 @@
       Title="AnimalOnePage">
 
     <Grid>
-        <Image Name="Image" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="785" MouseDown="Image_MouseDown"/>
-        <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="550" Margin="790,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="210"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="601*"/>
+            <ColumnDefinition Width="399*"/>
+        </Grid.ColumnDefinitions>
+        <Image Name="Image" HorizontalAlignment="Left" Height="550" VerticalAlignment="Top" Width="785" MouseDown="Image_MouseDown" Grid.ColumnSpan="2"/>
+        <Rectangle Fill="Gray" HorizontalAlignment="Left" Height="550" Margin="189,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="210" Grid.Column="1"/>
         <Button Name="button_back" Content="Zurück" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="76" Height="24" Click="button_back_Click"/>
-        <Button Content="Füttern" FontWeight="Bold" HorizontalAlignment="Left" Margin="805,357,0,0" VerticalAlignment="Top" Width="185" Height="37" Click="Button_Click"/>
+        <Button Content="Füttern" FontWeight="Bold" HorizontalAlignment="Left" Margin="204,357,0,0" VerticalAlignment="Top" Width="185" Height="37" Click="Button_Click" Grid.Column="1"/>
 
-        <ProgressBar Name="progressbar_food" HorizontalAlignment="Left" Height="30" Margin="840,44,0,0" VerticalAlignment="Top" Width="154"/>
-        <ProgressBar Name="progressbar_health" HorizontalAlignment="Left" Height="28" Margin="840,90,0,0" VerticalAlignment="Top" Width="154"/>
-        <ProgressBar Name="progressbar_love" HorizontalAlignment="Left" Height="30" Margin="840,132,0,0" VerticalAlignment="Top" Width="154"/>
-        <Label Name="progress_food" Content="100%" HorizontalAlignment="Left" Margin="897,44,0,0" VerticalAlignment="Top" Width="44"/>
-        <Label Name="progress_health" Content="100%" HorizontalAlignment="Left" Margin="897,90,0,0" VerticalAlignment="Top" Width="44"/>
-        <Label Name="progress_love" Content="100%" HorizontalAlignment="Left" Margin="897,136,0,0" VerticalAlignment="Top" Width="44"/>
-        <Label Name="label_cash" Content="Geld:" FontFamily="Arial" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="840,438,0,0" VerticalAlignment="Top" Width="141"/>
-        <ComboBox Name="combobox_food" HorizontalAlignment="Left" Margin="805,321,0,0" VerticalAlignment="Top" Width="185"/>
+        <ProgressBar Name="progressbar_food" HorizontalAlignment="Left" Height="30" Margin="239,44,0,0" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+        <ProgressBar Name="progressbar_health" HorizontalAlignment="Left" Height="28" Margin="239,90,0,0" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+        <ProgressBar Name="progressbar_love" HorizontalAlignment="Left" Height="30" Margin="239,132,0,0" VerticalAlignment="Top" Width="154" Grid.Column="1"/>
+        <Label Name="progress_food" Content="100%" HorizontalAlignment="Left" Margin="296,44,0,0" VerticalAlignment="Top" Width="44" Grid.Column="1"/>
+        <Label Name="progress_health" Content="100%" HorizontalAlignment="Left" Margin="296,90,0,0" VerticalAlignment="Top" Width="44" Grid.Column="1"/>
+        <Label Name="progress_love" Content="100%" HorizontalAlignment="Left" Margin="296,136,0,0" VerticalAlignment="Top" Width="44" Grid.Column="1"/>
+        <Label Name="label_cash" Content="Geld:" FontFamily="Arial" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="239,438,0,0" VerticalAlignment="Top" Width="141" Grid.Column="1"/>
+        <ComboBox Name="combobox_food" HorizontalAlignment="Left" Margin="204,321,0,0" VerticalAlignment="Top" Width="185" Grid.Column="1"/>
+        <Image Margin="204,44,164,476" Source="../pics/foodIcon.jpg" Stretch="Fill" Grid.Column="1"/>
+        <Image Margin="202,131,165,391" Source="../pics/herzIcon.jpg" Stretch="Fill" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.046"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Margin="204,90,165,430" Source="../pics/lebenIcon.png" Stretch="Fill" Grid.Column="1"/>
 
     </Grid>
 </Page>

@@ -10,6 +10,9 @@ using System.Windows.Media.Imaging;
 
 namespace AnimalSimulator.objects.AnimalObjects
 {
+
+    //Animal animal = new Adler();
+
     class Adler : Animal
     {
         public Adler()

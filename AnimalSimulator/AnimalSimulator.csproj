@@ -219,5 +219,10 @@
   <ItemGroup>
     <Resource Include="pics\favicon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pics\foodIcon.jpg" />
+    <Resource Include="pics\herzIcon.jpg" />
+    <Resource Include="pics\lebenIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
