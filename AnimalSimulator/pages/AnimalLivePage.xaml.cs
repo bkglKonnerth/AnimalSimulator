@@ -115,6 +115,7 @@ namespace AnimalSimulator.pages
                             if (hasEnoghCash(400))
                             {
                                 animal.foodLevel += 50;
+                                animal.healthLevel = 100;
                                 initUser.cash -= 400;
 
                                 user.cash += animal.feedCash;

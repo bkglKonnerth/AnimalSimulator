@@ -11,5 +11,8 @@
 
     <Grid>
         <Button Name="button_back" Content="Zurück" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="75" Click="button_back_Click"/>
+        <Label Content="OP Goldapfel = Belebt dein Tier wieder, setzt alles auf 100, die Liebe geht auf 0" HorizontalAlignment="Left" Margin="157,88,0,0" VerticalAlignment="Top" Width="472"/>
+        <Label Content="Normales Futter = Füttert dein Tier mit normalen Essen" HorizontalAlignment="Left" Margin="157,119,0,0" VerticalAlignment="Top" Width="472"/>
+        <Label Content="Biggi = Gibt Deinem Tier 50 Essen dazu und macht das Leben wieder voll" HorizontalAlignment="Left" Margin="157,150,0,0" VerticalAlignment="Top" Width="472"/>
     </Grid>
 </Page>
